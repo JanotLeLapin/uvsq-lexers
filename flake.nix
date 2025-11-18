@@ -13,6 +13,8 @@
     devShells = eachSystem ({ pkgs, ... }: {
       default = pkgs.callPackage ./shell.nix {};
     });
-    packages = eachSystem ({ pkgs, ... }: { default = pkgs.callPackage ./default.nix {}; });
+    packages = eachSystem ({ pkgs, ... }: {
+      compter_mot = pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = "compter_mot"; };
+    });
   };
 }
