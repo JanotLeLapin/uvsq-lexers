@@ -13,10 +13,12 @@
     devShells = eachSystem ({ pkgs, ... }: {
       default = pkgs.callPackage ./shell.nix {};
     });
-    packages = eachSystem ({ pkgs, ... }: {
-      compter_mot = pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = "compter_mot"; };
-      start_stop = pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = "start_stop"; };
-      frequence = pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = "frequence"; };
+    packages = eachSystem ({ pkgs, ... }: let
+      lexer = name: pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = name; };
+    in {
+      compter_mot = lexer "compter_mot";
+      start_stop = lexer "start_stop";
+      frequence = lexer "frequence";
     });
   };
 }
