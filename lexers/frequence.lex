@@ -15,12 +15,13 @@ upper [A-Z]
 %%
 
 int main() {
-	unsigned int total_chars = upper + lower;
+	unsigned int total_chars;
 	float upper_freq, lower_freq;
 
 	yylex();
-	upper_freq = ((float) upper) / ((float) total);
-	lower_freq = ((float) lower) / ((float) total);
-	printf("lower_freq: %f, lower_count: %f, upper_freq: %f, upper_count: %d, total: %d, line_count: %d\n", lower_freq, lower, upper_freq, upper, total, line_count);
+	total_chars = upper + lower;
+	upper_freq = ((float) upper) / ((float) total_chars);
+	lower_freq = ((float) lower) / ((float) total_chars);
+	printf("lower freq: %f\%, lower count: %d, upper freq: %f\%, upper count: %d, total: %d, line count: %d\n", lower_freq * 100, lower, upper_freq * 100, upper, total_chars, line_count);
 	return 0;
 }
