@@ -1,0 +1,6 @@
+8.2.1: cat Arsene_Lupin.txt | grep "Lupin"
+8.2.2: cat Arsene_Lupin.txt | grep "LUPIN"
+8.2.7: cat Arsene_Lupin.txt | grep -ic "lu.*in"
+
+8.3.3: Lex affiche dans le terminal les motifs non reconnus
+8.3.4: Le programme affiche "flex scanner jammed"
