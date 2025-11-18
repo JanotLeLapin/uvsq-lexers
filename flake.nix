@@ -15,6 +15,7 @@
     });
     packages = eachSystem ({ pkgs, ... }: {
       compter_mot = pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = "compter_mot"; };
+      start_stop = pkgs.callPackage ./compile-lexer.nix { src = ./lexers; lexer-name = "start_stop"; };
     });
   };
 }
